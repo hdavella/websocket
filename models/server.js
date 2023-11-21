@@ -33,8 +33,12 @@ class Server {
             socket.on('disconnect', () => {
                 console.log("Cliente desconectado", socket.id);
             });
-        });
 
+            socket.on('eventFromClient', (messageFromClient)=>{
+                console.log(messageFromClient);
+            });
+
+        });
     };
 
     listen() {

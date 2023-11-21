@@ -20,3 +20,14 @@ clientSocket.on('disconnect', () => {
     lblOnline.style.display= 'none';
     lblOffline.style.display='';
 });
+
+btnSend.addEventListener('click', ()=>{
+
+    const message = txtMessage.value;
+    const payload = {
+        msg: message,
+        id: "id1234",
+        date: new Date().getTime()
+    };
+    clientSocket.emit('eventFromClient', payload);
+});
